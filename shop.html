@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop</title>
+    
     <link rel="stylesheet" href="css/shop.css" />
     <link rel="stylesheet" href="css/all.min.css" />
   </head>
@@ -21,11 +22,11 @@
 
       <nav>
         <ul>
-          <li><a href="/home.html#">Home</a></li>
-          <li><a href="/shop.html">Shop</a></li>
-          <li><a href="/about.html">About us</a></li>
+          <li><a href="home.html#">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About us</a></li>
           <li>
-            <a href="/cart.html">Cart <i class="fas fa-shopping-cart"></i> </a>
+            <a href="cart.html">Cart <i class="fas fa-shopping-cart"></i> </a>
           </li>
         </ul>
       </nav>
@@ -118,14 +119,53 @@
         <br />
         <input type="button" value="Search" id="search" /><br />
       </div>
-      <div id="cards">
+<div class="divofsections">
+      <section class="books-section" id="discover">
+      <div class="sub-container">
+        <div class="section-header">
+          <h2>New Releases</h2>
+          <div class="view-options">
+            <button class="view-btn active" data-view="grid">
+              <i class="fas fa-th"></i>
+            </button>
+            <button class="view-btn" data-view="list">
+              <i class="fas fa-list"></i>
+            </button>
+          </div>
+        </div>
+        <div class="books-grid" id="booksGrid"></div>
+      </div>
+    </section>
+
+    <!-- End New Releases -->
+    <!-- Start BestSellers -->
+    <section class="books-section" id="discover">
+      <div class="sub-container">
+        <div class="section-header">
+          <h2>BestSellers</h2>
+          <div class="view-options">
+            <button class="view-btn active" data-view="grid">
+              <i class="fas fa-th"></i>
+            </button>
+            <button class="view-btn" data-view="list">
+              <i class="fas fa-list"></i>
+            </button>
+          </div>
+        </div>
+        <div class="books-grid" id="booksGrid2"></div>
+      </div>
+    </section></div>
+    <!-- End BestSellers -->
+
+       <!--<div id="cards">
         <div id="card">
           <img src="images/1.jpg" /><br />
           <label id="b_name">book1</label><br />
           <input type="button" value="20 $" id="b_price" />
           <input type="button" value="Details" id="b_details" />
-        </div>
-      </div>
+        </div> 
+      </div>-->
+      <script src="js/shop.js"></script>
     </div>
   </body>
 </html>
