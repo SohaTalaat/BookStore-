@@ -10,6 +10,11 @@ body {
   background-color: #f9f9f9;
 }
 
+button.disabled {
+  background-color: gray;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
 /* Start Header */
 
 header {
@@ -224,7 +229,7 @@ nav a:hover {
   transition: all 0.3s ease;
 }
 .add-cart:hover {
-  background-color: #ec7f45;
+  background-color: grey;
 }
 .view-all a {
   text-decoration: none;

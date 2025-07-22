@@ -151,5 +151,10 @@ function addToLocalStorage(e) {
 
     // Save to localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Disable Button
+    e.target.innerText = "In Cart";
+    e.target.disabled = true;
+    e.target.classList.add("disabled");
   }
 }
