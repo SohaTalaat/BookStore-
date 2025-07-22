@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+    <link rel="stylesheet" href="css/shop.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+  </head>
+
+  <body>
+    <!-- Start Header -->
+    <header>
+      <div class="logo">
+        <h1 class="logoName">Mass</h1>
+        <span>Bookstore</span>
+      </div>
+      <div class="search">
+        <input type="text" name="" id="input" placeholder="Type A Key Word" />
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="/home.html#">Home</a></li>
+          <li><a href="/shop.html">Shop</a></li>
+          <li><a href="/about.html">About us</a></li>
+          <li><a href="/home.html#contacts">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- End Header -->
+    <div class="container">
+      <div id="filter">
+        <h3>Filter</h3>
+        <input type="checkbox" name="bestseller" id="bestseller" /><label
+          for="bestseller"
+          >Bestseller</label
+        ><br />
+        <input type="checkbox" name="newreleases" id="newreleases" /><label
+          for="newreleases"
+          >New Releases</label
+        ><br />
+        <input type="checkbox" name="awaiting" id="awaiting" /><label
+          for="awaiting"
+          >Awaiting</label
+        ><br />
+        <input type="checkbox" name="discounted" id="discounted" /><label
+          for="discounted"
+          >Discounted</label
+        ><br />
+
+        <h3>Genre</h3>
+        <input type="checkbox" name="horror" id="horror" /><label for="horror"
+          >Horror</label
+        ><br />
+        <input type="checkbox" name="thrillers" id="thrillers" /><label
+          for="thrillers"
+          >Thrillers</label
+        ><br />
+        <input type="checkbox" name="prose" id="prose" /><label for="prose"
+          >Prose</label
+        ><br />
+        <input type="checkbox" name="science" id="science" /><label
+          for="science"
+          >Science Fiction</label
+        ><br />
+        <input type="checkbox" name="romance" id="romance" /><label
+          for="romance"
+          >Romance Novels</label
+        ><br />
+        <input type="checkbox" name="detectives" id="detectives" /><label
+          for="detectives"
+          >Detectives</label
+        ><br />
+        <input type="checkbox" name="fiction" id="fiction" /><label
+          for="fiction"
+          >Fiction</label
+        ><br />
+        <input type="checkbox" name="psychology" id="psychology" /><label
+          for="psychology"
+          >Psychology</label
+        ><br />
+        <input type="checkbox" name="business" id="business" /><label
+          for="business"
+          >Business and Motivation</label
+        ><br />
+        <input type="checkbox" name="children" id="children" /><label
+          for="children"
+          >Children's Books </label
+        ><br />
+
+        <h3>Language</h3>
+        <input type="checkbox" name="english" id="english" /><label
+          for="english"
+          >English</label
+        ><br />
+        <input type="checkbox" name="arabic" id="arabic" /><label for="arabic"
+          >Arabic</label
+        ><br />
+
+        <h3>Book Type</h3>
+        <input type="checkbox" name="paper" id="paper" /><label for="paper"
+          >Paper</label
+        ><br />
+        <input type="checkbox" name="ebook" id="ebook" /><label for="ebook"
+          >E-book</label
+        ><br />
+
+        <h3>Publisher</h3>
+        <input type="search" placeholder="Publisher Search" /><br />
+
+        <h3>Prise</h3>
+        <input type="search" placeholder="From" />
+        <input type="search" placeholder="To" /><br />
+
+        <br />
+        <input type="button" value="Search" id="search" /><br />
+      </div>
+      <div id="cards">
+        <div id="card">
+          <img src="images/1.jpg" /><br />
+          <label id="b_name">book1</label><br />
+          <input type="button" value="20 $" id="b_price" />
+          <input type="button" value="Details" id="b_details" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

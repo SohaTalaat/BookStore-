@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  padding-top: 70px;
+  background-color: #f9f9f9;
+}
+
+/* Start Header */
+
+header {
+  background-color: white;
+  padding: 15px 65px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  z-index: 1000;
+}
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1.logoName {
+  font-size: 30px;
+  font-weight: bold;
+  color: #708aff;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.logo span {
+  color: #708aff;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+header .search input {
+  margin-left: 5px;
+  padding-left: 3;
+  width: 170px;
+  transition: width 0.3s;
+  border: 1px solid #ccc;
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+header .search {
+  position: relative;
+}
+header .search::before {
+  font-family: var(--fa-style-family-classic);
+  content: "\f002";
+  font-weight: 900;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--grey-color);
+}
+header .search input:focus {
+  width: 200px;
+  outline: none;
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+nav a {
+  color: #708aff;
+  text-decoration: none;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  font-family: "IBM Plex Mono Regular";
+}
+nav a:hover {
+  color: #5a7de0;
+  border-bottom: 1px solid;
+}
+/* End Header */
+
+/* shop  */
+.container {
+  display: flex;
+}
+#filter {
+  position: sticky;
+  top: 15%;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin-left: 10%;
+  margin-top: 4%;
+  width: 30%;
+  height: fit-content;
+  display: inline-block;
+}
+label{
+  padding: 8px;
+}
+#cards {
+  display: flex;
+  margin-top: 60px;
+  margin-left: 30px;
+  flex-wrap: wrap;
+  position: relative;
+  top: 10%;
+  right: 0;
+}
+#card {
+  margin: 10px;
+  border-radius: 20px;
+  width: 200px;
+  height: 400px;
+}
+img {
+  width: 150px;
+  height: 300px;
+  border-radius: 10px;
+}
+#b_price,
+#b_details,
+#search {
+  background-color: orange;
+  color: black;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px;
+}
+div#filter input[type="button"] {
+  margin-left: 5px;
+  padding-left: 3;
+  width: 170px;
+  transition: width 0.3s;
+  border: 1px solid #ccc;
+  padding: 10px 30px;
+  border-radius: 10px;
+}

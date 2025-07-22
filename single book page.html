@@ -1,0 +1,383 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        padding-top: 70px;
+      }
+
+      /* Start Header */
+
+      header {
+        background-color: #f9f9f9;
+        padding: 15px 65px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+        z-index: 1000;
+      }
+      .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h1.logoName {
+        font-size: 30px;
+        font-weight: bold;
+        color: #708aff;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      .logo span {
+        color: #708aff;
+        font-size: 12px;
+        font-weight: bold;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      header .search input {
+        margin-left: 5px;
+        padding-left: 3;
+        width: 170px;
+        transition: width 0.3s;
+        border: 1px solid #ccc;
+        padding: 10px 30px;
+        border-radius: 10px;
+      }
+      header .search {
+        position: relative;
+      }
+      header .search::before {
+        font-family: var(--fa-style-family-classic);
+        content: "\f002";
+        font-weight: 900;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px;
+        color: var(--grey-color);
+      }
+      header .search input:focus {
+        width: 200px;
+        outline: none;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 50px;
+        align-items: center;
+      }
+
+      nav a {
+        color: #708aff;
+        text-decoration: none;
+        font-size: 20px;
+        transition: all 0.3s ease;
+        font-family: "IBM Plex Mono Regular";
+      }
+      nav a:hover {
+        color: #5a7de0;
+        border-bottom: 1px solid;
+      }
+      /* End Header */
+
+      .main {
+        width: 70%;
+        height: 500px;
+        background: #f0f2f7;
+        margin: 0 auto;
+        border-radius: 20px;
+        display: flex;
+        position: relative;
+        top: 20px;
+      }
+
+      .cols_page {
+        display: flex;
+        align-items: space-between;
+        margin-top: 50px;
+        margin-left: 20px;
+      }
+
+      .side-bar {
+        background: #f0f2f7;
+        height: 500px;
+        width: 25%;
+        position: relative;
+        top: 20px;
+        border-radius: 20px;
+      }
+
+      #bookdet .bookimage {
+        position: relative;
+        bottom: 50px;
+        width: 30%;
+        height: 100%;
+        margin: 0 auto;
+      }
+      i {
+        color: gold;
+      }
+      .bookimage img {
+        border-radius: 2.5px;
+      }
+
+      #bookdet {
+        padding: 10px;
+      }
+
+      #bookdet .single-book-details {
+        padding-top: 20px;
+        width: 50%;
+      }
+      #bookdet .single-book-details h6 {
+        opacity: 0.5;
+      }
+      #bookdet .single-book-details h4 {
+        padding-top: 10px;
+        font-size: 25px;
+      }
+      .single-book-details h2 {
+        padding: 10px 0 10px 0;
+      }
+
+      #bookdet .single-book-details input:focus {
+        outline: none;
+      }
+
+      #bookdet .single-book-details input:hover {
+        cursor: pointer;
+      }
+
+      #bookdet .single-book-details input {
+        padding: 20px;
+        width: 50px;
+        font-size: 16px;
+        padding: 12px;
+        border-radius: 10px;
+        margin-right: 10px;
+        margin-top: 15px;
+        border-color: #a8b7e0;
+        background: transparent;
+      }
+
+      #bookdet .single-book-details button {
+        padding: 15px;
+        outline: none;
+        border-color: #a8b7e0;
+        border-radius: 10px;
+        margin-top: 15px;
+        background: transparent;
+      }
+
+      #bookdet .single-book-details .para {
+        line-height: 25px;
+        margin-top: 10px;
+        opacity: 0.5;
+      }
+      span {
+        opacity: 0.5;
+      }
+
+      .authorname {
+        opacity: 0.5;
+      }
+
+      .author img {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      h5 {
+        opacity: 0.7;
+        margin-bottom: 20px;
+      }
+
+      .author_of_the_week {
+        padding-left: 30px;
+        padding-top: 20px;
+      }
+
+      .author {
+        margin-bottom: 20px;
+      }
+
+      .book img {
+        width: 50px;
+        height: 70px;
+        margin-right: 10px;
+      }
+
+      .book {
+        display: flex;
+        gap: 2px;
+        margin-bottom: 5px;
+      }
+
+      .book p {
+        font-size: 13px;
+      }
+
+      .book span {
+        font-size: 10px;
+      }
+      .book_of_the_year {
+        padding-left: 30px;
+        padding-top: 20px;
+      }
+
+      .reco {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 10px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Start Header -->
+    <header>
+      <div class="logo">
+        <h1 class="logoName">Mass</h1>
+        <span>Bookstore</span>
+      </div>
+      <div class="search">
+        <input type="text" name="" id="input" placeholder="Type A Key Word" />
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="/home.html#">Home</a></li>
+          <li><a href="/shop.html">Shop</a></li>
+          <li><a href="/about.html">About us</a></li>
+          <li><a href="/home.html#contacts">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- End Header -->
+
+    <section id="bookdet" class="prodet">
+      <div class="cols_page">
+        <div class="side-bar">
+          <div class="author_of_the_week">
+            <h5>Recommended Authors</h5>
+            <div class="author">
+              <img src="books.jpg" />
+              <span> David Harlows </span>
+            </div>
+            <div class="author">
+              <img src="books.jpg" />
+              <span> David Harlows </span>
+            </div>
+            <div class="author">
+              <img src="books.jpg" />
+              <span> David Harlows </span>
+            </div>
+          </div>
+
+          <div class="Book_Of_The_Year">
+            <h5>Recommended Books</h5>
+            <div class="Book">
+              <div>
+                <img src="books.jpg" />
+              </div>
+              <div>
+                <p>Alone On The Wall Alone On The</p>
+                <p>Wall Alone On The Wall Alone</p>
+                <span> By David Harlows </span>
+              </div>
+            </div>
+
+            <div class="Book">
+              <div>
+                <img src="books.jpg" />
+              </div>
+              <div>
+                <p>Alone On The Wall Alone On The</p>
+                <p>Wall Alone On The Wall Alone</p>
+                <span> By David Harlows </span>
+              </div>
+            </div>
+
+            <div class="Book">
+              <div>
+                <img src="books.jpg" />
+              </div>
+              <div>
+                <p>Alone On The Wall Alone On The</p>
+                <p>Wall Alone On The Wall Alone</p>
+                <span> By David Harlows </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="main">
+          <div class="bookimage">
+            <img
+              src="books.jpg"
+              width="100%"
+              height="100%"
+              id="mainimg"
+              alt=""
+            />
+          </div>
+          <div class="single-book-details">
+            <h6>Home / Books / Alone On The Wall</h6>
+            <h4>Alone On The Wall</h4>
+            <p class="authorname">By David Harlows</p>
+            <h2>$50.00</h2>
+            <br /><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half"></i> <span> 109,255 reviews </span
+            ><br />
+            <p class="para">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
+              ullam minus laboriosam odio architecto tempore esse dicta placeat
+              rerum? At eaque facilis sunt nesciunt rerum excepturi quibusdam
+              inventore assumenda numquam!
+            </p>
+            <img class="reco" src="books.jpg" />
+            <span class="reco"> Recommended By David Harlow </span><br />
+
+            <input type="number" value="1" />
+            <button>ADD To Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
