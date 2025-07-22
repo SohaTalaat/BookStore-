@@ -3,11 +3,15 @@
 let booksGrid = document.getElementById("booksGrid");
 let booksGrid2 = document.getElementById("booksGrid2");
 let viewAll = document.getElementById("viewAll");
+let addToCart;
+let bookInfo;
+let book;
 
 //  Event Listeners
 
 document.addEventListener("DOMContentLoaded", loadNew);
 document.addEventListener("DOMContentLoaded", loadBest);
+document.addEventListener("click", addToLocalStorage);
 viewAll.addEventListener("click", loadMoreBooks);
 function loadMoreBooks() {}
 
@@ -28,7 +32,7 @@ function loadNew() {
 function displayNew(p) {
   var jsonData = JSON.parse(p);
   var bookData = jsonData.docs;
-  for (let i = 0; i <= bookData.length; i++) {
+  for (let i = 0; i < bookData.length; i++) {
     // Create book Container
     var bookCard = document.createElement("div");
     bookCard.className = "book-card";
@@ -53,16 +57,16 @@ function displayNew(p) {
     spacer.className = "spacer";
 
     //Add To Cart Button
-    let addToCard = document.createElement("button");
-    addToCard.className = "add-cart";
-    addToCard.innerText = "Add To Cart";
+    let addToCart = document.createElement("button");
+    addToCart.className = "add-cart";
+    addToCart.innerText = "Add To Cart";
 
     // Append Data
     bookInfo.appendChild(bookTitle);
     bookInfo.appendChild(bookAuthor);
     bookCard.appendChild(bookInfo);
     bookInfo.appendChild(spacer);
-    bookInfo.appendChild(addToCard);
+    bookInfo.appendChild(addToCart);
     booksGrid2.append(bookCard);
   }
 }
@@ -84,7 +88,7 @@ function loadBest() {
 function displayBest(p) {
   var jsonData = JSON.parse(p);
   var bookData = jsonData.docs;
-  for (let i = 0; i <= bookData.length; i++) {
+  for (let i = 0; i < bookData.length; i++) {
     // Create book Container
     var bookCard = document.createElement("div");
     bookCard.className = "book-card";
@@ -109,16 +113,43 @@ function displayBest(p) {
     spacer.className = "spacer";
 
     //Add To Cart Button
-    let addToCard = document.createElement("button");
-    addToCard.className = "add-cart";
-    addToCard.innerText = "Add To Cart";
+    let addToCart = document.createElement("button");
+    addToCart.className = "add-cart";
+    addToCart.innerText = "Add To Cart";
 
     // Append Data
     bookInfo.appendChild(bookTitle);
     bookInfo.appendChild(bookAuthor);
     bookCard.appendChild(bookInfo);
     bookInfo.appendChild(spacer);
-    bookInfo.appendChild(addToCard);
+    bookInfo.appendChild(addToCart);
     booksGrid.append(bookCard);
+  }
+}
+
+//  Event functions
+function addToLocalStorage(e) {
+  if (e.target.classList.contains("add-cart")) {
+    const bookCard = e.target.closest(".book-card");
+    const title = bookCard.querySelector(".book-title").innerText;
+    const imageSrc = bookCard.querySelector(".book-cover").src;
+
+    const book = {
+      title: title,
+      image: imageSrc,
+    };
+
+    // Initialize Array
+    let cart = [];
+
+    if (localStorage.getItem("cart")) {
+      cart = JSON.parse(localStorage.getItem("cart"));
+    }
+
+    // Add book to cart
+    cart.push(book);
+
+    // Save to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
   }
 }
