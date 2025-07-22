@@ -32,6 +32,7 @@ function loadNew() {
 function displayNew(p) {
   var jsonData = JSON.parse(p);
   var bookData = jsonData.docs;
+  const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
   for (let i = 0; i < bookData.length; i++) {
     // Create book Container
     var bookCard = document.createElement("div");
@@ -59,7 +60,18 @@ function displayNew(p) {
     //Add To Cart Button
     let addToCart = document.createElement("button");
     addToCart.className = "add-cart";
-    addToCart.innerText = "Add To Cart";
+    const alreadyInCart = cart.some(
+      (book) => book.title === jsonData.docs[i].title
+    );
+
+    if (alreadyInCart) {
+      addToCart.innerText = "In Cart";
+      addToCart.disabled = true;
+      addToCart.classList.add("disabled");
+    } else {
+      addToCart.innerText = "Add To Cart";
+    }
+    // addToCart.innerText = "Add To Cart";
 
     // Append Data
     bookInfo.appendChild(bookTitle);
@@ -134,27 +146,34 @@ function addToLocalStorage(e) {
     const title = bookCard.querySelector(".book-title").innerText;
     const imageSrc = bookCard.querySelector(".book-cover").src;
 
-    const book = {
+    const coverId = imageSrc.match(/\/b\/id\/(\d+)-L\.jpg/)[1];
+
+    const newBook = {
       title: title,
       image: imageSrc,
+      id: coverId,
     };
 
     // Initialize Array
     let cart = [];
 
-    if (localStorage.getItem("cart")) {
-      cart = JSON.parse(localStorage.getItem("cart"));
+    if (sessionStorage.getItem("cart")) {
+      cart = JSON.parse(sessionStorage.getItem("cart"));
     }
 
-    // Add book to cart
-    cart.push(book);
+    const exists = cart.some((book) => book.id === newBook.id);
+    if (exists) {
+      e.target.innerText = "Already In Cart";
+      e.target.disabled = true;
+      e.target.classList.add("disabled");
+    }
+    if (!exists) {
+      cart.push(newBook);
+      sessionStorage.setItem("cart", JSON.stringify(cart));
 
-    // Save to localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    // Disable Button
-    e.target.innerText = "In Cart";
-    e.target.disabled = true;
-    e.target.classList.add("disabled");
+      e.target.innerText = "Added To Cart";
+      e.target.disabled = true;
+      e.target.classList.add("disabled");
+    }
   }
 }
