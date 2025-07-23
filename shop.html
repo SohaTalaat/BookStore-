@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop</title>
-    
+
     <link rel="stylesheet" href="css/shop.css" />
     <link rel="stylesheet" href="css/all.min.css" />
   </head>
@@ -112,52 +112,53 @@
         <h3>Publisher</h3>
         <input type="search" placeholder="Publisher Search" /><br />
 
-        <h3>Prise</h3>
+        <h3>Price</h3>
         <input type="search" placeholder="From" />
         <input type="search" placeholder="To" /><br />
 
         <br />
         <input type="button" value="Search" id="search" /><br />
       </div>
-<div class="divofsections">
-      <section class="books-section" id="discover">
-      <div class="sub-container">
-        <div class="section-header">
-          <h2>New Releases</h2>
-          <div class="view-options">
-            <button class="view-btn active" data-view="grid">
-              <i class="fas fa-th"></i>
-            </button>
-            <button class="view-btn" data-view="list">
-              <i class="fas fa-list"></i>
-            </button>
+      <div class="divofsections">
+        <section class="books-section" id="discover">
+          <div class="sub-container">
+            <div class="section-header">
+              <h2>New Releases</h2>
+              <div class="view-options">
+                <button class="view-btn active" data-view="grid">
+                  <i class="fas fa-th"></i>
+                </button>
+                <button class="view-btn" data-view="list">
+                  <i class="fas fa-list"></i>
+                </button>
+              </div>
+            </div>
+            <div class="books-grid" id="booksGrid"></div>
           </div>
-        </div>
-        <div class="books-grid" id="booksGrid"></div>
-      </div>
-    </section>
+        </section>
 
-    <!-- End New Releases -->
-    <!-- Start BestSellers -->
-    <section class="books-section" id="discover">
-      <div class="sub-container">
-        <div class="section-header">
-          <h2>BestSellers</h2>
-          <div class="view-options">
-            <button class="view-btn active" data-view="grid">
-              <i class="fas fa-th"></i>
-            </button>
-            <button class="view-btn" data-view="list">
-              <i class="fas fa-list"></i>
-            </button>
+        <!-- End New Releases -->
+        <!-- Start BestSellers -->
+        <section class="books-section" id="discover">
+          <div class="sub-container">
+            <div class="section-header">
+              <h2>BestSellers</h2>
+              <div class="view-options">
+                <button class="view-btn active" data-view="grid">
+                  <i class="fas fa-th"></i>
+                </button>
+                <button class="view-btn" data-view="list">
+                  <i class="fas fa-list"></i>
+                </button>
+              </div>
+            </div>
+            <div class="books-grid" id="booksGrid2"></div>
           </div>
-        </div>
-        <div class="books-grid" id="booksGrid2"></div>
+        </section>
       </div>
-    </section></div>
-    <!-- End BestSellers -->
+      <!-- End BestSellers -->
 
-       <!--<div id="cards">
+      <!--<div id="cards">
         <div id="card">
           <img src="images/1.jpg" /><br />
           <label id="b_name">book1</label><br />
@@ -165,7 +166,64 @@
           <input type="button" value="Details" id="b_details" />
         </div> 
       </div>-->
+
       <script src="js/shop.js"></script>
     </div>
+    <!-- Start Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>BookStore</h3>
+          <p>
+            Your Trusted Partner for Finding The Perfect Book. Discover, Read,
+            and Grow With Us.
+          </p>
+          <div class="social">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Bestsellers</a></li>
+            <li><a href="#">New Arrivals</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Customer Service</h4>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Stay In The Loop</h4>
+          <p>
+            Subscribe to Our Newsletter and be The First To Know About New
+            Arrivals. Enter Your E-mail Below.
+          </p>
+          <div class="email-input">
+            <input
+              type="email"
+              name="mail"
+              id="mail"
+              placeholder="Your Email Address"
+            />
+            <button class="subscribe">Send</button>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <p>&copy; 2025 BookStore. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <!-- End Footer -->
   </body>
 </html>

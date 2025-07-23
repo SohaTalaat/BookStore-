@@ -8,8 +8,8 @@ let book;
 document.addEventListener("DOMContentLoaded", loadNew);
 document.addEventListener("DOMContentLoaded", loadBest);
 document.addEventListener("click", addToLocalStorage);
-viewAll.addEventListener("click", loadMoreBooks);
-function loadMoreBooks() {}
+// viewAll.addEventListener("click", loadMoreBooks);
+// function loadMoreBooks() {}
 
 // Extract API Data
 
@@ -21,7 +21,7 @@ function loadNew() {
       displayNew(book);
     }
   };
-  var url = "https://openlibrary.org/search.json?q=new+releases&limit=10";
+  var url = "https://openlibrary.org/search.json?q=new+releases&limit=9";
   xhr.open("get", url, true);
   xhr.send();
 }
@@ -77,7 +77,7 @@ function loadBest() {
       displayBest(book);
     }
   };
-  var url = "https://openlibrary.org/search.json?q=bestsellers&limit=10";
+  var url = "https://openlibrary.org/search.json?q=bestsellers&limit=12";
   xhr2.open("get", url, true);
   xhr2.send();
 }
