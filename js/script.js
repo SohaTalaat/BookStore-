@@ -12,8 +12,6 @@ let book;
 document.addEventListener("DOMContentLoaded", loadNew);
 document.addEventListener("DOMContentLoaded", loadBest);
 document.addEventListener("click", addToLocalStorage);
-viewAll.addEventListener("click", loadMoreBooks);
-function loadMoreBooks() {}
 
 // Extract API Data
 
@@ -32,7 +30,7 @@ function loadNew() {
 function displayNew(p) {
   var jsonData = JSON.parse(p);
   var bookData = jsonData.docs;
-  const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
   for (let i = 0; i < bookData.length; i++) {
     // Create book Container
     var bookCard = document.createElement("div");
@@ -157,8 +155,8 @@ function addToLocalStorage(e) {
     // Initialize Array
     let cart = [];
 
-    if (sessionStorage.getItem("cart")) {
-      cart = JSON.parse(sessionStorage.getItem("cart"));
+    if (localStorage.getItem("cart")) {
+      cart = JSON.parse(localStorage.getItem("cart"));
     }
 
     const exists = cart.some((book) => book.id === newBook.id);
@@ -169,7 +167,7 @@ function addToLocalStorage(e) {
     }
     if (!exists) {
       cart.push(newBook);
-      sessionStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem("cart", JSON.stringify(cart));
 
       e.target.innerText = "Added To Cart";
       e.target.disabled = true;
