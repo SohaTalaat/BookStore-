@@ -1,11 +1,10 @@
 body {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: #f0f9ff; 
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: #f0f9ff;
   color: #333;
   margin: 0;
   padding: 0;
   padding-top: 70px;
-
 }
 
 .cart-page {
@@ -53,7 +52,7 @@ body {
   width: 35px;
   height: 35px;
   font-size: 1.3rem;
-  background-color: #dbeafe; 
+  background-color: #dbeafe;
   color: #1e3a8a;
   border: none;
   border-radius: 6px;
@@ -74,7 +73,7 @@ body {
 
 .remove-btn {
   margin-left: auto;
-  background-color: #f87171; 
+  background-color: #f87171;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -87,7 +86,7 @@ body {
   background-color: #ef4444;
 }
 
-.cart-summary {
+/* .cart-summary {
   text-align: right;
   margin-top: 2rem;
   background-color: #e0f2fe; 
@@ -96,10 +95,10 @@ body {
   font-size: 1.1rem;
   font-weight: bold;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-}
+} */
 
 .checkout-btn {
-  background-color: #34d399; 
+  background-color: #34d399;
   color: white;
   padding: 1rem 2rem;
   border: none;

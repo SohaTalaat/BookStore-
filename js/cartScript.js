@@ -41,4 +41,27 @@ window.onload = function () {
     <p>Total: $${subtotal}</p>
     <button class="checkout-btn">Checkout</button>
   `;
+  removeButton(cartItem);
 };
+
+var rmvbutton = document.getElementsByClassName("remove-btn");
+console.log(rmvbutton);
+
+function removeButton(cartItem) {
+  // remove from DOM Content
+  var rmvbutton = document.getElementsByClassName("remove-btn");
+  // var cartItemsDivs = document.getElementsByClassName("cart-item");
+  for (let i = 0; i < rmvbutton.length; i++) {
+    rmvbutton[i].addEventListener("click", function () {
+      var itemDiv = this.closest(".cart-item");
+      itemDiv.remove();
+
+      // cartItem.splice(i, 1);
+      localStorage.setItem("cart", JSON.stringify(cartItem));
+
+      if (cartItem.length === 0) {
+        location.reload();
+      }
+    });
+  }
+}
