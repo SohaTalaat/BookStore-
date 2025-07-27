@@ -1,6 +1,7 @@
 let booksGrid = document.getElementById("booksGrid");
 let booksGrid2 = document.getElementById("booksGrid2");
 let addToCart;
+let deleteFromCart;
 let bookInfo;
 let book;
 //  Event Listeners
@@ -8,11 +9,11 @@ let book;
 document.addEventListener("DOMContentLoaded", loadNew);
 document.addEventListener("DOMContentLoaded", loadBest);
 document.addEventListener("click", addToLocalStorage);
+document.addEventListener("click", showBookInfo);
 // viewAll.addEventListener("click", loadMoreBooks);
 // function loadMoreBooks() {}
 
 // Extract API Data
-
 function loadNew() {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
@@ -56,13 +57,31 @@ function displayNew(p) {
     let addToCart = document.createElement("button");
     addToCart.className = "add-cart";
     addToCart.innerText = "Add To Cart";
+    //delate from Cart Button
+    let deleteFromCart = document.createElement("button");
+    deleteFromCart.className = "add-cart disabled";
+    deleteFromCart.innerText = "delate from Cart";
 
+  // check if book checked befor reload
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let coverIdStr = String(coverId); 
+
+    if (cart.some((book) => book.id === coverIdStr)) {
+      addToCart.innerText = "Added to Cart";
+      addToCart.disabled = true;
+      addToCart.classList.add("disabled");
+      deleteFromCart.innerText = "delate from Cart";
+      deleteFromCart.disabled = false;
+      deleteFromCart.className = "add-cart";
+    }
     // Append Data
     bookInfo.appendChild(bookTitle);
     bookInfo.appendChild(bookAuthor);
     bookCard.appendChild(bookInfo);
     bookInfo.appendChild(spacer);
     bookInfo.appendChild(addToCart);
+    bookInfo.appendChild(deleteFromCart);
     booksGrid2.append(bookCard);
   }
 }
@@ -113,12 +132,30 @@ function displayBest(p) {
     addToCart.className = "add-cart";
     addToCart.innerText = "Add To Cart";
 
+    //delate from Cart Button
+    let deleteFromCart = document.createElement("button");
+    deleteFromCart.className = "add-cart disabled";
+    deleteFromCart.innerText = "delate from Cart";
+
+    // check if book checked befor reload
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let coverIdStr = String(coverId); 
+
+    if (cart.some((book) => book.id === coverIdStr)) {
+      addToCart.innerText = "Added to Cart";
+      addToCart.disabled = true;
+      addToCart.classList.add("disabled");
+      deleteFromCart.innerText = "delate from Cart";
+      deleteFromCart.disabled = false;
+      deleteFromCart.className = "add-cart";
+    }
     // Append Data
     bookInfo.appendChild(bookTitle);
     bookInfo.appendChild(bookAuthor);
     bookCard.appendChild(bookInfo);
     bookInfo.appendChild(spacer);
     bookInfo.appendChild(addToCart);
+    bookInfo.appendChild(deleteFromCart);
     booksGrid.append(bookCard);
   }
 }
@@ -130,22 +167,45 @@ function addToLocalStorage(e) {
     const title = bookCard.querySelector(".book-title").innerText;
     const imageSrc = bookCard.querySelector(".book-cover").src;
 
-    const book = {
+    const coverId = imageSrc.match(/\/b\/id\/(\d+)-L\.jpg/)[1];
+
+    const newBook = {
       title: title,
       image: imageSrc,
+      id: coverId,
     };
 
-    // Initialize Array
+    // // Initialize Array
     let cart = [];
 
     if (localStorage.getItem("cart")) {
       cart = JSON.parse(localStorage.getItem("cart"));
     }
 
-    // Add book to cart
-    cart.push(book);
+    const exists = cart.some((book) => book.id === newBook.id);
+    if (!exists) {
+      cart.push(newBook);
+      localStorage.setItem("cart", JSON.stringify(cart));
 
-    // Save to localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
+      e.target.innerText = "Added To Cart";
+      e.target.disabled = true;
+      e.target.classList.add("disabled");
+    }
+  }
+}
+
+function showBookInfo(e) {
+  if (e.target.classList.contains("book-cover")) {
+    const bookCard = e.target.closest(".book-card");
+    const title = bookCard.querySelector(".book-title").innerText;
+    const imageSrc = e.target.src;
+
+    // set Data to local storage
+    localStorage.setItem(
+      "selectedBook",
+      JSON.stringify({ title: title, image: imageSrc })
+    );
+    // Single book page
+    window.location.href = "singleBookPage.html";
   }
 }
