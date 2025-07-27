@@ -123,7 +123,7 @@ nav a:hover {
   padding: 15px;
   border-radius: 5px;
   bottom: 43%;
-  left: 44%;
+  left: 50%;
 }
 .hero .discover a {
   text-decoration: none;
@@ -132,7 +132,7 @@ nav a:hover {
 .hero h3 {
   position: absolute;
   top: 63%;
-  left: 40%;
+  left: 47%;
   color: #46332d;
 }
 /* End Hero Section */

@@ -24,7 +24,7 @@ function loadNew() {
       displayNew(book);
     }
   };
-  var url = "https://openlibrary.org/search.json?q=new+releases&limit=5";
+  var url = "https://openlibrary.org/search.json?q=new+releases&limit=8";
   xhr.open("get", url, true);
   xhr.send();
 }
@@ -92,7 +92,7 @@ function loadBest() {
       displayBest(book);
     }
   };
-  var url = "https://openlibrary.org/search.json?q=bestsellers&limit=5";
+  var url = "https://openlibrary.org/search.json?q=bestsellers&limit=8";
   xhr2.open("get", url, true);
   xhr2.send();
 }
