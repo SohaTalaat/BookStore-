@@ -3,12 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shop</title>
-
+    <title>Mass Store</title>
     <link rel="stylesheet" href="css/shop.css" />
     <link rel="stylesheet" href="css/all.min.css" />
   </head>
-
   <body>
     <!-- Start Header -->
     <header>
@@ -24,7 +22,6 @@
         <ul>
           <li><a href="home.html#">Home</a></li>
           <li><a href="shop.html">Shop</a></li>
-          <li><a href="about.html">About us</a></li>
           <li>
             <a href="cart.html">Cart <i class="fas fa-shopping-cart"></i> </a>
           </li>
@@ -32,7 +29,11 @@
       </nav>
     </header>
     <!-- End Header -->
+
+    <!-- start page -->
     <div class="container">
+
+      <!-- start filter -->
       <div id="filter">
         <h3>Filter</h3>
         <input type="checkbox" name="bestseller" id="bestseller" /><label
@@ -119,6 +120,10 @@
         <br />
         <input type="button" value="Search" id="search" /><br />
       </div>
+      <!-- end filter -->
+
+      <!-- start books grids -->
+       <!-- start New Releases -->
       <div class="divofsections">
         <section class="books-section" id="discover">
           <div class="sub-container">
@@ -136,8 +141,8 @@
             <div class="books-grid" id="booksGrid"></div>
           </div>
         </section>
-
         <!-- End New Releases -->
+
         <!-- Start BestSellers -->
         <section class="books-section" id="discover">
           <div class="sub-container">
@@ -157,16 +162,6 @@
         </section>
       </div>
       <!-- End BestSellers -->
-
-      <!--<div id="cards">
-        <div id="card">
-          <img src="images/1.jpg" /><br />
-          <label id="b_name">book1</label><br />
-          <input type="button" value="20 $" id="b_price" />
-          <input type="button" value="Details" id="b_details" />
-        </div> 
-      </div>-->
-
       <script src="js/shop.js"></script>
     </div>
     <!-- Start Footer -->
