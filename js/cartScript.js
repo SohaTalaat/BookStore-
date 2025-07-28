@@ -44,24 +44,27 @@ window.onload = function () {
   removeButton(cartItem);
 };
 
-var rmvbutton = document.getElementsByClassName("remove-btn");
+var rmvbutton = document.querySelectorAll(".remove-btn");
 console.log(rmvbutton);
 
 function removeButton(cartItem) {
   // remove from DOM Content
-  var rmvbutton = document.getElementsByClassName("remove-btn");
-  // var cartItemsDivs = document.getElementsByClassName("cart-item");
+  var rmvbutton = document.querySelectorAll(".remove-btn");
   for (let i = 0; i < rmvbutton.length; i++) {
     rmvbutton[i].addEventListener("click", function () {
       var itemDiv = this.closest(".cart-item");
-      itemDiv.remove();
+      const itemIndex = Array.from(document.querySelectorAll(".cart-item")).indexOf(itemDiv);
 
-      // cartItem.splice(i, 1);
-      localStorage.setItem("cart", JSON.stringify(cartItem));
+      if (itemIndex !== -1) {
+        cartItem.splice(itemIndex, 1);
+        localStorage.setItem("cart", JSON.stringify(cartItem));
+      }
 
       if (cartItem.length === 0) {
         location.reload();
       }
+      itemDiv.remove();
+
     });
   }
 }
