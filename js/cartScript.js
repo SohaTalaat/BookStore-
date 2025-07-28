@@ -1,5 +1,5 @@
 window.onload = function () {
-  var cartItem = JSON.parse(localStorage.getItem("cart")); // extract data
+  var cartItem = JSON.parse(localStorage.getItem("cart")) || []; // extract data
   var cartPage = document.querySelector(".cart-page");
   var cartSummary = document.querySelector(".cart-summary");
 
@@ -26,9 +26,9 @@ window.onload = function () {
       <p>Quantity: 1</p>
     </div>
     <div class="quantity-selector">
-      <button class="qty-btn">-</button>
+      <button class="qtyminus-btn">-</button>
       <span class="qty-number">1</span>
-      <button class="qty-btn">+</button>
+      <button class="qtyadd-btn">+</button>
     </div>
     <button class="remove-btn">Remove</button>
   </div>
@@ -42,6 +42,21 @@ window.onload = function () {
     <button class="checkout-btn">Checkout</button>
   `;
   removeButton(cartItem);
+  plusMinus();
+
+   var checkoutBtn = document.querySelector(".checkout-btn");  // to checkout and display that the shopping is done and storage being free
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener("click", function () {
+      localStorage.removeItem("cart");
+
+      cartPage.innerHTML = `
+        <div class="confirmation-message">
+          <h2>✅ Your order is confirmed!</h2>
+          <p>Thank you for shopping with us.</p>
+        </div>
+      `;
+    });
+  }
 };
 
 var rmvbutton = document.querySelectorAll(".remove-btn");
@@ -68,3 +83,31 @@ function removeButton(cartItem) {
     });
   }
 }
+
+// decrement and increment product "book"
+function plusMinus() {
+  var item = document.querySelectorAll(".cart-item");
+  item.forEach(element => {
+    var qtyplus = element.querySelector(".qtyadd-btn");
+    var minus = element.querySelector(".qtyminus-btn");
+    var quantity = element.querySelector(".qty-number");
+    var quantityText = element.querySelector(".cart-info p:nth-child(3)"); // in display <p>Quantity: 1</p>
+
+    qtyplus.addEventListener("click", function () { // increment + 
+      let qty = parseInt(quantity.textContent);
+      qty = qty + 1;
+      quantity.textContent = qty;
+      quantityText.textContent = `Quantity: ${qty}`;
+    });
+
+    minus.addEventListener("click", function () {  // decrement - 
+      let qty = parseInt(quantity.textContent);
+      if (qty > 1) {
+        qty = qty - 1;
+        quantity.textContent = qty;
+        quantityText.textContent = `Quantity: ${qty}`;
+      }
+    });
+  });
+}
+  
