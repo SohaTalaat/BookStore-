@@ -151,10 +151,12 @@ function addToLocalStorage(e) {
       e.target.innerText = "Added To Cart";
       e.target.disabled = true;
       e.target.classList.add("disabled");
+
     }
   }
 }
-function showBookInfo(e) {
+
+  function showBookInfo(e) {
   if (e.target.classList.contains("book-cover")) {
     const bookCard = e.target.closest(".book-card");
     const title = bookCard.querySelector(".book-title").innerText;
@@ -169,3 +171,4 @@ function showBookInfo(e) {
     window.location.href = "singleBookPage.html";
   }
 }
+  
