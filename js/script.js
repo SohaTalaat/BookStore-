@@ -24,7 +24,7 @@ function loadNew() {
       displayNew(book);
     }
   };
-  var url = "https://openlibrary.org/search.json?q=new+releases&limit=8";
+  var url = "https://openlibrary.org/search.json?q=new+releases&limit=6";
   xhr.open("get", url, true);
   xhr.send();
 }
@@ -59,18 +59,16 @@ function displayNew(p) {
     //Add To Cart Button
     let addToCart = document.createElement("button");
     addToCart.className = "add-cart";
-    const alreadyInCart = cart.some(
-      (book) => book.title === jsonData.docs[i].title
-    );
+    addToCart.innerText = "Add To Cart";
 
-    if (alreadyInCart) {
-      addToCart.innerText = "In Cart";
+    // check if book checked befor reload
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let coverIdStr = String(coverId);
+    if (cart.some((book) => book.id === coverIdStr)) {
+      addToCart.innerText = "Added to Cart";
       addToCart.disabled = true;
       addToCart.classList.add("disabled");
-    } else {
-      addToCart.innerText = "Add To Cart";
     }
-    // addToCart.innerText = "Add To Cart";
 
     // Append Data
     bookInfo.appendChild(bookTitle);
@@ -92,7 +90,7 @@ function loadBest() {
       displayBest(book);
     }
   };
-  var url = "https://openlibrary.org/search.json?q=bestsellers&limit=8";
+  var url = "https://openlibrary.org/search.json?q=bestsellers&limit=6";
   xhr2.open("get", url, true);
   xhr2.send();
 }
@@ -127,6 +125,15 @@ function displayBest(p) {
     let addToCart = document.createElement("button");
     addToCart.className = "add-cart";
     addToCart.innerText = "Add To Cart";
+
+    // check if book checked befor reload
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let coverIdStr = String(coverId);
+    if (cart.some((book) => book.id === coverIdStr)) {
+      addToCart.innerText = "Added to Cart";
+      addToCart.disabled = true;
+      addToCart.classList.add("disabled");
+    }
 
     // Append Data
     bookInfo.appendChild(bookTitle);

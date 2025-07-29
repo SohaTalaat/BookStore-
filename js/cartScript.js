@@ -4,7 +4,7 @@ window.onload = function () {
   var cartSummary = document.querySelector(".cart-summary");
 
   if (cartItem.length === 0) {
-    cartPage.innerHTML = "<h2> Your cart is empty </h2>";
+    cartPage.innerHTML = "<h2 class='empty'> Your cart is empty </h2>";
     cartSummary.innerHTML = "";
     return;
   }
@@ -44,7 +44,7 @@ window.onload = function () {
   removeButton(cartItem);
   plusMinus();
 
-   var checkoutBtn = document.querySelector(".checkout-btn");  // to checkout and display that the shopping is done and storage being free
+  var checkoutBtn = document.querySelector(".checkout-btn");  // to checkout and display that the shopping is done and storage being free
   if (checkoutBtn) {
     checkoutBtn.addEventListener("click", function () {
       localStorage.removeItem("cart");
@@ -110,4 +110,3 @@ function plusMinus() {
     });
   });
 }
-  
