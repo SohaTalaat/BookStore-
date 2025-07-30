@@ -4,6 +4,16 @@ An online bookstore where users can browse, view, and add books to their cart. B
 
 ---
 
+# 👥 Team Members
+
+- _Soha Talaat_ — Created the Home page
+
+- _Mustafa Hamdi_ — Created the Shop page
+
+- _Sara Mahmoud_ — Created the Single Book Description page
+
+- _Abdelrahman Ramadan_ — Created the Cart and Checkout page
+
 ## 🔖 Features
 
 - 🏠 Home page with a welcome message and featured sections
