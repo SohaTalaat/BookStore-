@@ -44,7 +44,7 @@ An online bookstore where users can browse, view, and add books to their cart. B
 
 bookStore/
 │
-├── home.html # Home Page
+├── index.html # Home Page
 ├── shop.html # Shop Page
 ├── singleBookPage.html # Single Book Description
 ├── cart.html # Cart and Checkout Page
